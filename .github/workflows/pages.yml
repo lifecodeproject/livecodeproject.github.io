@@ -1,41 +1,28 @@
-# File: .github/workflows/pages.yml
 name: Deploy LiveCodeProject
 
 on:
   push:
     branches:
-      - main          # Deploy on every push to main
+      - main
   schedule:
-    - cron: '*/15 * * * *'  # Auto-run every 15 minutes
-  workflow_dispatch:   # Manual trigger
+    - cron: '*/15 * * * *'  # Auto-deploy every 15 minutes
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      # 1. Checkout the repository
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      # 2. (Optional) Install build dependencies
-      # Uncomment and customize if you need a build step:
-      #- name: Setup Node.js
-      #  uses: actions/setup-node@v3
-      #  with:
-      #    node-version: '16'
-      #- name: Install dependencies
-      #  run: npm install
-      #- name: Build site
-      #  run: npm run build
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
 
-      # 3. Upload the static site directory as an artifact
-      - name: Upload site artifact
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: .   # publishes all files in the repo root
+          path: '.'
 
-      # 4. Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+        uses: actions/deploy-pages@v4
