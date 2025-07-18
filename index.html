@@ -2,60 +2,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LiveCodeProject: NeuroHelix Engine</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>3D Molecule Viewer</title>
+  <style>
+    body { margin: 0; background-color: #000; }
+    canvas { display: block; }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>LiveCodeProject: NeuroHelix Engine</h1>
-    <p>AI-Powered Discovery for Cancer, COVID-19, and All Diseases</p>
-    <nav>
-      <a href="#dashboard">Dashboard</a>
-      <a href="#discoveries">Discoveries</a>
-      <a href="#collaborate">Collaborate</a>
-      <a href="#about">About</a>
-    </nav>
-  </header>
-
-  <section id="dashboard">
-    <h2>Dashboard</h2>
-    <p>Live system dashboard will show molecular updates, AI logs, discovery timelines, and analytics here.</p>
-    <ul>
-      <li><strong>🧬 KRX-999 (KRAS G12D inhibitor)</strong> — Score: 98.7%</li>
-      <li><strong>🧬 KRX-Ω∞ (Multi-pathway resistance analog)</strong> — Score: 94.2%</li>
-      <li><strong>🦠 KRX-COV-L1 (COVID spike peptide)</strong> — Score: 85.6%</li>
-      <li><strong>🧪 KRX-921 (EGFR inhibitor)</strong> — Score: 97.4%</li>
-    </ul>
-    <div>
-      <h3>🧠 Current AI Focus</h3>
-      <p>Multi-target optimization for immune-escape resistant cancer cells. Pathway map generation in progress.</p>
-    </div>
-    <div>
-      <h3>⚙️ Validation Cycle</h3>
-      <p>Candidate KRX-BLK-7A failed synthesis validation. System redirecting logic to alternate analog class.</p>
-    </div>
-  </section>
-
-  <section id="discoveries">
-    <h2>Discoveries</h2>
-    <p>This section will list new therapeutic analogs, pathway models, and real-time simulation results.</p>
-  </section>
-
-  <section id="collaborate">
-    <h2>Collaborate</h2>
-    <p>Email: andrewjordanmosher@gmail.com or contribute via GitHub. Contributor portal coming soon.</p>
-  </section>
-
-  <section id="about">
-    <h2>About NeuroHelix™</h2>
-    <p>Open-source AI framework for dynamic treatment evolution. Using quantum-enhanced logic and simulation.</p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 LiveCodeProject. All rights reserved.</p>
-  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.151.3/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.151.3/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="./scripts/viewer.js"></script>
 </body>
 </html>
-    
