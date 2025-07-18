@@ -37,6 +37,30 @@
   </section>
 
   <section id="dashboard">
+    <div id="discovery-feed" style="background:#fff;border-radius:8px;padding:1rem;margin-top:1rem;box-shadow:0 2px 5px rgba(0,0,0,0.1);">
+      <h3>🧬 Real-Time Molecule Discovery Feed</h3>
+      <ul id="molecule-list" style="list-style:none;padding:0;margin:0;">
+        <li>🟢 KRX-999 (KRAS G12D inhibitor) – AI score: 98.7%</li>
+        <li>🟢 KRX-Ω∞ (Multi-pathway resistance analog) – AI score: 94.2%</li>
+        <li>🟡 KRX-COV-L1 (COVID spike-binding peptide) – AI score: 85.6%</li>
+        <li>🔴 KRX-BLK-7A (Inactive candidate – Rejected by AI)</li>
+      </ul>
+    </div>
+    <script>
+      const molecules = [
+        "🟢 KRX-921 (EGFR inhibitor) – AI score: 97.4%",
+        "🟢 KRX-ΔX7 (Lung metastasis analog) – AI score: 92.9%",
+        "🟡 KRX-COV-R2 (Omicron RBD binder) – AI score: 81.3%",
+        "🔴 KRX-TST-9C (Low viability compound)"
+      ];
+      setInterval(() => {
+        const list = document.getElementById("molecule-list");
+        const item = document.createElement("li");
+        item.textContent = molecules[Math.floor(Math.random() * molecules.length)];
+        list.insertBefore(item, list.firstChild);
+        if (list.children.length > 8) list.removeChild(list.lastChild);
+      }, 8000);
+    </script>
     <h2>Dashboard</h2>
     <p>Live system dashboard will show molecular updates, AI logs, discovery timelines, and analytics here.</p>
   </section>
