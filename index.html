@@ -2,27 +2,100 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LiveCodeProject</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: white;
-      text-align: center;
-      padding: 3rem;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0a0f24;
+      color: #f1f1f1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
     }
     h1 {
-      font-size: 3rem;
+      font-size: 2.8em;
+      margin-bottom: 0.2em;
+      color: #00ffcc;
     }
     p {
-      font-size: 1.2rem;
+      font-size: 1.2em;
+      max-width: 700px;
+      text-align: center;
+    }
+    .logo {
+      font-size: 3em;
+      margin-bottom: 0.5em;
+    }
+    .molecule-box {
+      margin-top: 40px;
+      background: #1a1f3a;
+      border: 2px solid #00ffcc33;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 700px;
+      width: 100%;
+    }
+    .status {
+      font-family: monospace;
+      color: #00ffcc;
+      margin-top: 10px;
+    }
+    .email {
+      margin-top: 30px;
+      font-size: 1em;
+    }
+    .pulse {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background: #00ffcc;
+      border-radius: 50%;
+      animation: pulse 1s infinite;
+      margin-left: 8px;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.4); opacity: 0.5; }
+      100% { transform: scale(1); opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <h1>🚀 LiveCodeProject is coming soon</h1>
-  <p>Our AI-powered scientific breakthroughs will change the world.</p>
-  <p>Contact: <a href="mailto:andrewjordanmosher@gmail.com">andrewjordanmosher@gmail.com</a></p>
+  <div class="logo">🚀</div>
+  <h1>LiveCodeProject</h1>
+  <p>Our AI-powered biomedical system is discovering breakthrough molecules in real time to help cure cancer and more.</p>
+
+  <div class="molecule-box">
+    <h2>🧬 Molecule Discovery Feed <span class="pulse"></span></h2>
+    <div id="moleculeFeed" class="status">
+      Fetching discoveries...
+    </div>
+  </div>
+
+  <div class="email">
+    Contact: <a href="mailto:andrewjordanmosher@gmail.com">andrewjordanmosher@gmail.com</a>
+  </div>
+
+  <script>
+    const moleculeNames = [
+      "KRX‑999", "X12‑Ablate", "KRAS‑Inhibit‑Δ4", 
+      "Quantum‑Loop‑002", "SHP2‑Resist‑X", "ΔG‑Omega‑3", 
+      "BioSynthetron‑Q", "KRX‑Ω∞", "NeoFusion‑Cell‑Path"
+    ];
+
+    function simulateDiscovery() {
+      const el = document.getElementById("moleculeFeed");
+      const random = moleculeNames[Math.floor(Math.random() * moleculeNames.length)];
+      const timestamp = new Date().toLocaleTimeString();
+      el.innerHTML = `✅ ${random} discovered at ${timestamp}`;
+    }
+
+    setInterval(simulateDiscovery, 4000);
+  </script>
 </body>
 </html>
