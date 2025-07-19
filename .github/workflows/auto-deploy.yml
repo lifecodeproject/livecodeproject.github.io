@@ -1,0 +1,26 @@
+name: Auto Deploy NeuroHelix
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '*/15 * * * *'  # every 15 minutes
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Deploy via GH_PAT
+        run: |
+          git config --global user.email "you@example.com"
+          git config --global user.name "NeuroHelixBot"
+          git remote set-url origin https://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@github.com/livecodeproject/livecodeproject.github.io.git
+          git pull origin main
+          echo "✅ Auto Deployment Triggered at $(date)" >> deploy-log.txt
+          git add .
+          git commit -am "Auto-publish: $(date)"
+          git push origin main
