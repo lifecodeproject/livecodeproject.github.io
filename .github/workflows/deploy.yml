@@ -16,4 +16,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GH_PAT }}
-          publish_dir: ./  # Use "." if your index.html is at root
+          publish_branch: gh-pages
+          publish_dir: ./  # Adjust if your files are in /dist or /docs
