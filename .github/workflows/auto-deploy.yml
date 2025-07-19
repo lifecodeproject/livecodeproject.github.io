@@ -17,7 +17,10 @@ jobs:
           git config --global user.email "you@example.com"
           git config --global user.name "GitHub Actions"
 
-      - name: Deploy via GH_PAT
+      - name: Set Remote with Token
         run: |
           git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/lifecodeproject/livecodeproject.github.io.git
+
+      - name: Push changes
+        run: |
           git push origin main
