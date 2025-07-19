@@ -7,22 +7,29 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Upload site
-        uses: actions/upload-pages-artifact@v2
+      - name: Upload site files
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'  # or use ./dist or ./docs if needed
+          path: '.'  # Change if your site files are in a subfolder
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v2
+        id: deployment
+        uses: actions/deploy-pages@v4
