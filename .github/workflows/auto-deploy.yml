@@ -24,3 +24,4 @@ jobs:
       - name: Push changes
         run: |
           git push origin main
+git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/lifecodeproject/livecodeproject.git
